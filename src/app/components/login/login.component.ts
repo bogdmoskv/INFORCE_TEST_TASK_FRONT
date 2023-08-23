@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api/api.service';
+import { ApiService } from '../../services/api/api.service';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 
 @Component({
@@ -32,6 +32,10 @@ export class LoginComponent {
         this.errorMessage=error.error;
       }
     );
+  }
+
+  onLogout(){
+    this.authService.removeToken();
   }
 
 
