@@ -8,6 +8,7 @@ import { ShortUrlsComponent } from './short-urls/short-urls.component';
 import { ShortUrlInfoComponent } from './short-url-info/short-url-info.component';
 import { AboutComponent } from './about/about.component';
 import { ApiService } from './services/api/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,7 +22,8 @@ import { ApiService } from './services/api/api.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

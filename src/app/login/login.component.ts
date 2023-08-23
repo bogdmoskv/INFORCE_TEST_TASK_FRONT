@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api/api.service';
 
 
 
@@ -8,16 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) { }
 
-  // onLogin(username: string, password: string) {
-  //   this.apiService.login(username, password).subscribe(
-  //     response => {
-  //       const accessToken = response.access_token;
-  //     },
-  //     error => {
-  //       console.error('Login failed:', error);
-  //     }
-  //   );
-  // }
+  onLogin(username: string, password: string) {
+    this.apiService.login(username, password).subscribe(
+      response => {
+        const accessToken = response.access_token;
+      },
+      error => {
+        console.error('Login failed:', error);
+      }
+    );
+  }
 }
