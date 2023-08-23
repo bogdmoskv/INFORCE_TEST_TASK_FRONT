@@ -15,20 +15,27 @@ export class LoginComponent {
 
   constructor(
     private apiService: ApiService,
-    private authSevice: AuthService
+    private authService: AuthService
     ) { }
 
   onLogin() {
     this.apiService.login(this.username, this.password).subscribe(
       response => {
         console.log('Login successful:', response);
-        this.authSevice.saveToken(response.access_token);
+        this.authService.saveToken(response.access_token);
+        console.log("TOKEN" + this.authService.getToken());
       },
       error => {
         console.error('Login failed:', error);
       }
     );
   }
+
+
+  isUserLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
 
   
 }
