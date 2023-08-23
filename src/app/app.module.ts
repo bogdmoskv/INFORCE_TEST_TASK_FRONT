@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { ShortUrlsComponent } from './short-urls/short-urls.component';
 import { ShortUrlInfoComponent } from './short-url-info/short-url-info.component';
 import { AboutComponent } from './about/about.component';
+import { ApiService } from './services/api/api.service';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
