@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class LoginComponent {
   username: string = ''; 
   password: string = '';
+  errorMessage: string='';
 
   constructor(
     private apiService: ApiService,
@@ -19,6 +20,7 @@ export class LoginComponent {
     ) { }
 
   onLogin() {
+    this.errorMessage='';
     this.apiService.login(this.username, this.password).subscribe(
       response => {
         console.log('Login successful:', response);
@@ -27,6 +29,7 @@ export class LoginComponent {
       },
       error => {
         console.error('Login failed:', error);
+        this.errorMessage=error.error;
       }
     );
   }
@@ -36,6 +39,10 @@ export class LoginComponent {
     return this.authService.isLoggedIn();
   }
 
-
+  clearFields() {
+    this.username = '';
+    this.password = '';
+    this.errorMessage = ''; // Очищаем сообщение об ошибке
+  }
   
 }

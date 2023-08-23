@@ -13,7 +13,9 @@
               <label for="password">Password:</label>
               <input type="password" [(ngModel)]="password" id="password" name="password" class="form-control" placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn btn-primary btn-block" (click)="onLogin()">Login</button>
+            <div class="text-danger mb-3" *ngIf="true">{{ errorMessage }}</div>
+            <button type="submit" class="btn btn-primary btn-block mx-2" (click)="onLogin()">Login</button>
+            <button type="button" class="btn btn-secondary btn-block mx-2"  *ngIf="errorMessage" (click)="clearFields()">Clear fields</button>
           </form>
         </div>
       </div>
