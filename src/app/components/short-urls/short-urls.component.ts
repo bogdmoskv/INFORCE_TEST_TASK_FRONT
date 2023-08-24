@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { AddNewUrlModalComponent } from '../add-new-url-modal/add-new-url-modal.component';
 import { ApiService } from 'src/app/services/api/api.service';
+import { DataService } from 'src/app/services/data/data.service';
 
 
 @Component({
@@ -18,8 +19,10 @@ export class ShortUrlsComponent {
   constructor(
     private authService: AuthService,
     private modalService: MdbModalService,
-    private apiService:ApiService
-    ){}
+    private apiService:ApiService,
+    private dataService:DataService){
+      this.shortUrls=dataService.shortUrls;
+    }
 
     ngOnInit():void{
       this.fetchShortUrls();
@@ -33,9 +36,6 @@ export class ShortUrlsComponent {
     this.modalRef = this.modalService.open(AddNewUrlModalComponent)
   }
 
-  closeAddUrlModal() {
-   
-  }
 
   addNewUrl(): void {
     
