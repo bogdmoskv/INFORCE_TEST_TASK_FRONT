@@ -1,11 +1,26 @@
-<div class="url-info-container">
-    <h2 class="url-info-heading">Информация о короткой ссылке</h2>
-    <p><strong>ID создателя:</strong></p>
-    <p><strong>Email создателя:</strong></p>
-    <p><strong>Дата создания:</strong></p>
-    <p><strong>Полный адрес:</strong></p>
-    <p><strong>Короткий адрес:</strong></p>
-    <!-- Добавьте другие поля информации о короткой ссылке, если они есть -->
-  </div>
 
-  
+<div class="url-info-container" *ngIf="urlInfo">
+  <h2 class="url-info-heading">Short URL Information</h2>
+  <table>
+    <tr>
+      <td class="label"><strong>Creator ID:</strong></td>
+      <td class="value">{{ urlInfo.ownerId }}</td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Creator Email:</strong></td>
+      <td class="value">{{ urlInfo.email }}</td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Creation Date:</strong></td>
+      <td class="value">{{ urlInfo.createdTime | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Full Address:</strong></td>
+      <td class="value"><a href="{{ urlInfo.url }}" target="_blank">{{ urlInfo.url }}</a></td>
+    </tr>
+    <tr>
+      <td class="label"><strong>Short Address:</strong></td>
+      <td class="value"><a href="{{ urlInfo.shortUrl }}" target="_blank">{{ urlInfo.shortUrl }}</a></td>
+    </tr>
+  </table>
+</div>

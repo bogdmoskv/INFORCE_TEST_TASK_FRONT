@@ -4,6 +4,7 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { AddNewUrlModalComponent } from '../add-new-url-modal/add-new-url-modal.component';
 import { ApiService } from 'src/app/services/api/api.service';
 import { DataService } from 'src/app/services/data/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ShortUrlsComponent {
     private authService: AuthService,
     private modalService: MdbModalService,
     private apiService: ApiService,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private router:Router) {
   }
 
   ngOnInit(): void {
@@ -39,7 +41,15 @@ export class ShortUrlsComponent {
 
 
   viewDetails(id: number): void {
-
+    this.apiService.getInfoAboutOneUrl(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['short-url-info', id], { state: { urlInfo: response } });
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   deleteUrl(id: number): void {

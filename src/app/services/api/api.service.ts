@@ -24,15 +24,10 @@ export class ApiService{
     return this.http.post(`${this.baseUrl}/auth/login`, body, { headers });
   }
 
-  // addNewUrl(url: string): Observable<any> {
-  //   const body = { url }; 
 
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   });
-
-  //   return this.http.post(`${this.baseUrl}/url/shorturl`, body, { headers });
-  // }
+  getInfoAboutOneUrl(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/url/getInfoAboutOneUrl/${id}`);
+  }
 
 
   addNewUrl(url: string): Observable<any> {
