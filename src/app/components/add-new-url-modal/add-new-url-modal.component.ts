@@ -15,6 +15,14 @@ export class AddNewUrlModalComponent {
     ) {}
 
     addNewUrl():void{
-      console.log("SEND TO SERVER" + this.newUrl);
+      this.apiService.addNewUrl(this.newUrl).subscribe(
+        response => {
+          console.log(response); 
+          this.modalRef.close();
+        },
+        error => {
+          console.error('Error creating new URL:', error);
+        }
+      );
     }
 }
