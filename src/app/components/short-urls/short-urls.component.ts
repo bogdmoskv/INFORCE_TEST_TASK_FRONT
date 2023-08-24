@@ -50,18 +50,6 @@ export class ShortUrlsComponent {
     
   }
 
-  // private fetchShortUrls(): void {
-  //   // Запрашиваем список URL из бэкэнда
-  //   this.apiService.getShortUrls().subscribe(
-  //     response => {
-  //       this.shortUrls = response; // Присваиваем полученный список URL к shortUrls
-  //     },
-  //     error => {
-  //       console.error('Error fetching short URLs:', error);
-  //     }
-  //   );
-  // }
-  
 }
 
 

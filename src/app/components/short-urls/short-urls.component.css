@@ -1,0 +1,25 @@
+/* Пример стилей для уменьшения размеров кнопок и выравнивания текста */
+.url-cell a {
+    font-size: 14px; /* Размер текста ссылки */
+  }
+  
+  .action-cell {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  /* for mobiles */
+  @media (max-width: 767px) {
+    .action-cell {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .action-cell button {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+  

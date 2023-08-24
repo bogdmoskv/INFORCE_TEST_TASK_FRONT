@@ -12,7 +12,8 @@
     <div class="form-group">
       <label for="fullUrlInput">Full URL:</label>
       <input type="text" class="form-control" id="fullUrlInput" [(ngModel)]="newUrl" placeholder="Enter the full URL">
-  </div>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div> 
+    </div>
   </div>
 
   <div class="modal-footer">

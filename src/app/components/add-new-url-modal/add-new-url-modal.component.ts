@@ -11,6 +11,8 @@ import { DataService } from 'src/app/services/data/data.service';
 })
 export class AddNewUrlModalComponent {
   newUrl:string='';
+  errorMessage:string='';
+
   constructor(
     public modalRef: MdbModalRef<AddNewUrlModalComponent>,
     private apiService: ApiService,
@@ -25,7 +27,7 @@ export class AddNewUrlModalComponent {
           this.modalRef.close();
         },
         error => {
-          console.error('Error creating new URL:', error);
+          this.errorMessage='This address is already contained in the database!';
         }
       );
     }
