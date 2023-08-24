@@ -20,12 +20,13 @@ export class ShortUrlsComponent {
     private authService: AuthService,
     private modalService: MdbModalService,
     private apiService:ApiService,
-    private dataService:DataService){
-      this.shortUrls=dataService.shortUrls;
+    private dataService:DataService){  
     }
 
     ngOnInit():void{
-      this.fetchShortUrls();
+      this.dataService.shortUrls$.subscribe(shortUrls => {
+        this.shortUrls = shortUrls.slice(); 
+      });
     }
 
   isUserLoggedIn(): boolean {
@@ -49,17 +50,17 @@ export class ShortUrlsComponent {
     
   }
 
-  private fetchShortUrls(): void {
-    // Запрашиваем список URL из бэкэнда
-    this.apiService.getShortUrls().subscribe(
-      response => {
-        this.shortUrls = response; // Присваиваем полученный список URL к shortUrls
-      },
-      error => {
-        console.error('Error fetching short URLs:', error);
-      }
-    );
-  }
+  // private fetchShortUrls(): void {
+  //   // Запрашиваем список URL из бэкэнда
+  //   this.apiService.getShortUrls().subscribe(
+  //     response => {
+  //       this.shortUrls = response; // Присваиваем полученный список URL к shortUrls
+  //     },
+  //     error => {
+  //       console.error('Error fetching short URLs:', error);
+  //     }
+  //   );
+  // }
   
 }
 
