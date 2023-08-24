@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent {
 
   constructor(
     private apiService: ApiService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router:Router
     ) { }
 
   onLogin() {
@@ -26,6 +28,8 @@ export class LoginComponent {
         console.log('Login successful:', response);
         this.authService.saveToken(response.access_token);
         console.log("TOKEN" + this.authService.getToken());
+
+        this.router.navigate(['/short-urls']);
       },
       error => {
         console.error('Login failed:', error);

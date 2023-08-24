@@ -21,7 +21,7 @@
         <ul class="navbar-nav ml-auto">
           <!-- Показывать этот пункт меню только для аутентифицированных пользователей -->
           <li class="nav-item" *ngIf="isUserLoggedIn()">
-            <a class="nav-link" routerLink="/logout">Logout</a>
+            <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
           </li>
           <!-- Показывать этот пункт меню только для администраторов -->
           <!-- <li class="nav-item" *ngIf="authService.isAdmin()">
