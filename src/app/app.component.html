@@ -1,8 +1,8 @@
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">URL Shortener</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,18 +16,14 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/about">About</a>
           </li>
-          <!-- Дополнительные пункты меню, если нужно -->
+   
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <!-- Показывать этот пункт меню только для аутентифицированных пользователей -->
+        <ul class="navbar-nav ml-auto">      
           <li class="nav-item" *ngIf="isUserLoggedIn()">
+            <span class="nav-link">{{ getUserEmail() }} ({{getUserRole()}})</span>
             <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
           </li>
-          <!-- Показывать этот пункт меню только для администраторов -->
-          <!-- <li class="nav-item" *ngIf="authService.isAdmin()">
-            <a class="nav-link" routerLink="/admin">Admin</a>
-          </li> -->
-          <!-- Показывать этот пункт меню только для неаутентифицированных пользователей -->
+  
           <li class="nav-item" *ngIf="!isUserLoggedIn()">
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
@@ -38,4 +34,44 @@
 
   <div class="container mt-4">
     <router-outlet></router-outlet>
+  </div> -->
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">URL Shortener</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/short-urls">Short URLs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+          <!-- Дополнительные пункты меню, если нужно -->
+        </ul>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <span class="nav-link">{{ getUserEmail() }} ({{getUserRole()}})</span>
+          <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
+        </li>
+  
+        <li class="nav-item" *ngIf="!isUserLoggedIn()">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
   </div>
+  
+
+  

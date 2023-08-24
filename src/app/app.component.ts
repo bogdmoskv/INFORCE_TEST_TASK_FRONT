@@ -23,6 +23,16 @@ export class AppComponent {
 
   logout(){
     this.authService.removeToken();
+    this.authService.removeUserEmail();
+    this.authService.removeUserRole();
     this.router.navigate(['/login']);
+  }
+
+  getUserEmail():string | null{
+    return this.authService.getUserEmail();
+  }
+
+  getUserRole():string | null{
+    return this.authService.getUserRole();
   }
 }
