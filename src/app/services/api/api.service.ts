@@ -35,5 +35,10 @@ export class ApiService{
   getShortUrls(): Observable<any> {
     return this.http.get(`${this.baseUrl}/url/getAll`);
   }
+
+
+  deleteUrl(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/url/delete/${id}`);
+  }
 }
 

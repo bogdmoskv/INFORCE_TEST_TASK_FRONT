@@ -12,22 +12,22 @@ import { DataService } from 'src/app/services/data/data.service';
   styleUrls: ['./short-urls.component.css']
 })
 export class ShortUrlsComponent {
-  newUrl:string = '';
+  newUrl: string = '';
   modalRef: MdbModalRef<AddNewUrlModalComponent> | null = null;
   shortUrls: any[] = [];
 
   constructor(
     private authService: AuthService,
     private modalService: MdbModalService,
-    private apiService:ApiService,
-    private dataService:DataService){  
-    }
+    private apiService: ApiService,
+    private dataService: DataService) {
+  }
 
-    ngOnInit():void{
-      this.dataService.shortUrls$.subscribe(shortUrls => {
-        this.shortUrls = shortUrls.slice(); 
-      });
-    }
+  ngOnInit(): void {
+    this.dataService.shortUrls$.subscribe(shortUrls => {
+      this.shortUrls = shortUrls.slice();
+    });
+  }
 
   isUserLoggedIn(): boolean {
     return this.authService.isLoggedIn();
@@ -38,16 +38,20 @@ export class ShortUrlsComponent {
   }
 
 
-  addNewUrl(): void {
-    
-  }
-
   viewDetails(id: number): void {
-    
+
   }
 
   deleteUrl(id: number): void {
-    
+    this.apiService.deleteUrl(id).subscribe(
+      response => {
+        console.log(response);
+        this.dataService.fetchShortUrls();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }
