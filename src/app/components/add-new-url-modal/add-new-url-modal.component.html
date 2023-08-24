@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Add New URL</h5>
     <button
       type="button"
       class="btn-close"
@@ -7,10 +7,17 @@
       (click)="modalRef.close()"
     ></button>
   </div>
-  <div class="modal-body">...</div>
+
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="fullUrlInput">Full URL:</label>
+      <input type="text" class="form-control" id="fullUrlInput" [(ngModel)]="newUrl" placeholder="Enter the full URL">
+  </div>
+  </div>
+
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
       Close
     </button>
-    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-primary" (click)="addNewUrl()">Save changes</button>
   </div>
