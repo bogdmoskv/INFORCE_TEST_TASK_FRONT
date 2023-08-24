@@ -43,7 +43,6 @@ export class ShortUrlsComponent {
   viewDetails(id: number): void {
     this.apiService.getInfoAboutOneUrl(id).subscribe(
       response => {
-        console.log(response);
         this.router.navigate(['short-url-info', id], { state: { urlInfo: response } });
       },
       error => {
@@ -55,7 +54,6 @@ export class ShortUrlsComponent {
   deleteUrl(id: number): void {
     this.apiService.deleteUrl(id).subscribe(
       response => {
-        console.log(response);
         this.dataService.fetchShortUrls();
       },
       error => {
@@ -63,7 +61,6 @@ export class ShortUrlsComponent {
       }
     );
   }
-
 }
 
 

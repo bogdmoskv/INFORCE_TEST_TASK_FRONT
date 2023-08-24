@@ -17,47 +17,39 @@ interface DecodedToken {
 
 
 export class LoginComponent {
-  username: string = ''; 
+  username: string = '';
   password: string = '';
-  errorMessage: string='';
+  errorMessage: string = '';
 
 
   constructor(
     private apiService: ApiService,
     private authService: AuthService,
-    private router:Router
-    ) { }
+    private router: Router) { }
 
   onLogin() {
-    this.errorMessage='';
+    this.errorMessage = '';
     this.apiService.login(this.username, this.password).subscribe(
       response => {
-        console.log('Login successful:', response);
         this.authService.saveToken(response.access_token);
-        console.log("TOKEN" + this.authService.getToken());
-        let decodedToken:DecodedToken = jwt_decode(response.access_token);
-        
-        console.log(decodedToken);
-        
+        let decodedToken: DecodedToken = jwt_decode(response.access_token);
+
         let userEmail = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'];
         let userRole = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-        
 
         this.authService.saveUserEmail(userEmail);
         this.authService.saveUserRole(userRole)
-
-        
 
         this.router.navigate(['/short-urls']);
       },
       error => {
         console.error('Login failed:', error);
-        this.errorMessage=error.error;
+        this.errorMessage = error.error;
       }
     );
   }
 
-  onLogout(){
+  onLogout() {
     this.authService.removeToken();
   }
 
@@ -69,7 +61,7 @@ export class LoginComponent {
   clearFields() {
     this.username = '';
     this.password = '';
-    this.errorMessage = ''; // Очищаем сообщение об ошибке
+    this.errorMessage = ''; 
   }
-  
+
 }

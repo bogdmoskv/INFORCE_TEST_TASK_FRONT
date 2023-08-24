@@ -12,9 +12,8 @@ export class ShortUrlInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const id = params.get('id'); // Получаем id из параметров маршрута
-      this.urlInfo = history.state.urlInfo; // Получаем объект состояния из истории переходов
-      console.log("SHORT URL INFO: ", this.urlInfo);
+      const id = params.get('id'); 
+      this.urlInfo = history.state.urlInfo; 
     });
     
   }
