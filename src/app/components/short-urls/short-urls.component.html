@@ -13,7 +13,7 @@
             <th>ID</th>
             <th>Original URL</th>
             <th>Short URL</th>
-            <th>Actions</th>
+            <th *ngIf="isUserLoggedIn()">Actions </th>
           </tr>
         </thead>
           <tbody>
@@ -21,11 +21,11 @@
               <td>{{ url.id }}</td>
               <td class="url-cell"><a [href]="url.url" target="_blank">{{ url.url }}</a></td>
               <td class="url-cell"><a [href]="url.shortUrl" target="_blank">{{ url.shortUrl }}</a></td>
-              <td class="action-cell">
-                <button class="btn btn-info btn-sm" (click)="viewDetails(url.id)">
+              <td class="action-cell" *ngIf="isUserLoggedIn()">
+                <button class="btn btn-info btn-sm" (click)="viewDetails(url.id)" *ngIf="isUserLoggedIn()">
                   <i class="fa fa-info-circle"></i> Details
                 </button>
-                <button class="btn btn-danger btn-sm" (click)="deleteUrl(url.id)">
+                <button class="btn btn-danger btn-sm" (click)="deleteUrl(url.id)" *ngIf="isUserLoggedIn()">
                   <i class="fa fa-trash"></i> Delete
                 </button>
               </td>

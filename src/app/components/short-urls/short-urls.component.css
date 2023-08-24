@@ -1,14 +1,15 @@
-/* Пример стилей для уменьшения размеров кнопок и выравнивания текста */
+
 .url-cell a {
-    font-size: 14px; /* Размер текста ссылки */
+    font-size: 14px; 
   }
   
-  .action-cell {
+   .action-cell {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 10px; 
-  }
+  } 
+  
   
   /* for mobiles */
   @media (max-width: 767px) {
