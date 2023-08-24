@@ -16,17 +16,18 @@
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- <tr *ngFor="let url of shortUrls">
-              <td>{{ url.id }}</td>
-              <td>{{ url.originalUrl }}</td>
-              <td>{{ url.shortUrl }}</td>
-              <td>
-                <button class="btn btn-info" (click)="viewDetails(url.id)">View Details</button>
-                <button class="btn btn-danger" *ngIf="isAuthorized() && canDelete(url)" (click)="deleteUrl(url.id)">Delete</button>
-              </td>
-            </tr> -->
-          </tbody>
+            <tbody>
+              <tr *ngFor="let url of shortUrls">
+                <td>{{ url.id }}</td>
+                <td><a [href]="url.url" target="_blank">{{ url.url }}</a></td>
+                <td><a [href]="url.shortUrl" target="_blank">{{ url.shortUrl }}</a></td>
+                <td>
+                  <!-- <button class="btn btn-info" (click)="viewDetails(url.id)">View Details</button>
+                  <button class="btn btn-danger" *ngIf="isAuthorized() && canDelete(url)" (click)="deleteUrl(url.id)">Delete</button> -->
+                </td>
+              </tr>
+            </tbody>
+            
         </table>
       </div>
     </div>

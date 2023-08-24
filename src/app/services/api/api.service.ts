@@ -31,5 +31,9 @@ export class ApiService{
 
     return this.http.post(`${this.baseUrl}/url/shorturl`, body, { headers });
   }
+
+  getShortUrls(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/url/getAll`);
+  }
 }
 
