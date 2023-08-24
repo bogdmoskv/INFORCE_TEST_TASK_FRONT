@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 
 @Component({
   selector: 'app-short-urls',
@@ -6,18 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./short-urls.component.css']
 })
 export class ShortUrlsComponent {
+  constructor(private authService: AuthService){}
 
+  isUserLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
 
   addNewUrl(): void {
-    // Implement your logic to add a new URL and update the shortUrls array
+    
   }
 
   viewDetails(id: number): void {
-    // Implement your logic to navigate to the Short URL Info view with the specified ID
+    
   }
 
   deleteUrl(id: number): void {
-    // Implement your logic to delete a URL by its ID and update the shortUrls array
+    
   }
 
 }
