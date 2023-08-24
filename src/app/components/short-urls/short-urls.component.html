@@ -1,1 +1,34 @@
-<p>short-urls works!</p>
+<div class="container">
+    <h2>Short URLs Table</h2>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <button class="btn btn-primary" (click)="addNewUrl()">Add New URL</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Original URL</th>
+              <th>Short URL</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let url of shortUrls">
+              <td>{{ url.id }}</td>
+              <td>{{ url.originalUrl }}</td>
+              <td>{{ url.shortUrl }}</td>
+              <td>
+                <button class="btn btn-info" (click)="viewDetails(url.id)">View Details</button>
+                <button class="btn btn-danger" *ngIf="isAuthorized() && canDelete(url)" (click)="deleteUrl(url.id)">Delete</button>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
