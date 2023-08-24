@@ -1,1 +1,20 @@
-<p>about works!</p>
+<div class="container text-center">
+    <h1 class="my-4">Steps of URL Shortener Algorithm</h1>
+</div>
+
+<div class="container">
+    <h1 class="mt-4">1. User Authentication and Verification</h1>
+    <p>The algorithm begins by extracting the authorization token from the request headers. Subsequently, user information is extracted from this token, including the email address. The server checks for the user's presence in the database. If the user is not found, or if the token is invalid or missing, the server responds with Unauthorized, indicating unauthorized access.</p>
+
+    <h1 class="mt-4">2. URL Verification and Shortening</h1>
+    <p>The algorithm starts processing the provided input URL. It attempts to parse the entered URL. If the URL is invalid, a BadRequest response is returned along with an error message. Next, the algorithm checks if a URL with the same long link already exists in the database. If a match is found, a BadRequest response is returned with a message indicating that the link already exists in the database. Otherwise, a random string (comprising random letters and digits) is generated. This string will serve as the short identifier for the long link.</p>
+
+    <h1 class="mt-4">3. Database Storage</h1>
+    <p>A new entry is created in the database, containing information about the long and short links, as well as the link owner's ID (user). After this, the data is saved in the database.</p>
+
+    <h1 class="mt-4">4. Short URL Formation</h1>
+    <p>After successful data storage in the database, the complete short URL is formed. The full path, including the current host and protocol, is added to the short link, creating a functional short URL for further use.</p>
+
+    <h1 class="mt-4">5. Redirection Handling</h1>
+    <p>The web application also includes a handler for redirects based on short URLs. When a user clicks on a short URL, the server checks for a match in the database. If a match is found, the user is redirected to the original long URL.</p>
+</div>
