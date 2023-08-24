@@ -8,10 +8,21 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./short-urls.component.css']
 })
 export class ShortUrlsComponent {
+  newUrl:string = '';
+  isModalOpen:boolean=false;
+
   constructor(private authService: AuthService){}
 
   isUserLoggedIn(): boolean {
     return this.authService.isLoggedIn();
+  }
+
+  openAddUrlModal() {
+    this.isModalOpen = true; 
+  }
+
+  closeAddUrlModal() {
+    this.isModalOpen = false; 
   }
 
   addNewUrl(): void {

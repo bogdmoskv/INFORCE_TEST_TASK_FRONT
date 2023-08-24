@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { AddNewUrlModalComponent } from './components/add-new-url-modal/add-new-url-modal.component';
 
 
 
@@ -21,7 +22,8 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     ShortUrlsComponent,
     ShortUrlInfoComponent,
-    AboutComponent
+    AboutComponent,
+    AddNewUrlModalComponent
   ],
   imports: [
     BrowserModule,
