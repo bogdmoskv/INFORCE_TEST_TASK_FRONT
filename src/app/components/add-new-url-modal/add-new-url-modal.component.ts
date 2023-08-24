@@ -7,5 +7,5 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./add-new-url-modal.component.css']
 })
 export class AddNewUrlModalComponent {
-
+  constructor(public modalRef: MdbModalRef<AddNewUrlModalComponent>) {}
 }

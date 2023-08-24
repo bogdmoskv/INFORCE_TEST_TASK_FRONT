@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { AddNewUrlModalComponent } from '../add-new-url-modal/add-new-url-modal.component';
 
 @Component({
   selector: 'app-short-urls',
@@ -9,20 +10,23 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class ShortUrlsComponent {
   newUrl:string = '';
-  isModalOpen:boolean=false;
+  modalRef: MdbModalRef<AddNewUrlModalComponent> | null = null;
 
-  constructor(private authService: AuthService){}
+  constructor(
+    private authService: AuthService,
+    private modalService: MdbModalService
+    ){}
 
   isUserLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
 
   openAddUrlModal() {
-    this.isModalOpen = true; 
+    this.modalRef = this.modalService.open(AddNewUrlModalComponent)
   }
 
   closeAddUrlModal() {
-    this.isModalOpen = false; 
+   
   }
 
   addNewUrl(): void {

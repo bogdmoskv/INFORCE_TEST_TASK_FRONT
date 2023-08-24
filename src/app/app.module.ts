@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AddNewUrlModalComponent } from './components/add-new-url-modal/add-new-url-modal.component';
-
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { AddNewUrlModalComponent } from './components/add-new-url-modal/add-new-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MdbModalModule
   ],
   providers: [ApiService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
